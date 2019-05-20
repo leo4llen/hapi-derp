@@ -4,7 +4,7 @@
   "description": "super opinionated personal boilerplate for hapi. please leave asap",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon --exec babel-node src/server.js",
+    "dev": "npx nodemon --exec babel-node src/server.js",
     "lint": "eslint src --color",
     "build": "npx babel src --out-dir dist --ignore node_modules",
     "serve": "node dist/server.js",

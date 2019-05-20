@@ -1,16 +1,19 @@
-import { Server } from '@hapi/hapi'
-
-const server = Server({ port: 5555 })
+require('dotenv').config()
+const Glue = require('@hapi/glue')
+const { manifest, options } = require('./manifest')
 
 const init = async () => {
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: (req, h) => ({ message: 'Hello Hapi.js' })
-  })
-
-  await server.start()
-  console.log('Server is runninggggggggggggggg')
+  try {
+    const server = await Glue.compose(
+      manifest,
+      options
+    )
+    await server.start()
+    console.log('Server is runninggggggggggggggg')
+  } catch (e) {
+    console.error(e)
+    process.exit(1)
+  }
 }
 
 init()
