@@ -1,5 +1,3 @@
-console.log(process.env.test)
-
 const manifest = {
   server: {
     port: 8000

@@ -30,19 +30,12 @@
     "@hapi/hapi": "^18.3.1",
     "@hapi/joi": "^15.0.3",
     "@hapi/lab": "^19.0.0",
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.0.0",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@babel/node": "^7.2.2",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/runtime": "^7.4.4",
-    "babel-core": "^6.26.3",
     "eslint-config-prettier": "^4.3.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.1.1",
