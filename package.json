@@ -4,10 +4,9 @@
   "description": "super opinionated personal boilerplate for hapi. please leave asap",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon --exec babel-node src/server.js",
+    "dev": "npx nodemon index.js",
     "lint": "eslint src --color",
-    "build": "npx babel src --out-dir dist --ignore node_modules",
-    "serve": "node dist/server.js",
+    "serve": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,10 +26,17 @@
   "dependencies": {
     "@hapi/boom": "^7.4.2",
     "@hapi/glue": "^6.1.0",
+    "@hapi/good": "^8.2.0",
+    "@hapi/good-console": "^8.1.0",
+    "@hapi/good-squeeze": "^5.2.0",
     "@hapi/hapi": "^18.3.1",
     "@hapi/joi": "^15.0.3",
     "@hapi/lab": "^19.0.0",
     "dotenv": "^8.0.0",
+    "glob": "^7.1.4",
+    "hapi-auth-jwt2": "^8.6.1",
+    "mysql": "^2.17.1",
+    "objection": "^1.6.9",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
@@ -40,6 +46,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
+    "knex": "^0.16.5",
     "nodemon": "^1.19.0",
     "prettier": "^1.17.1"
   }
