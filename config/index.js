@@ -1,3 +1,4 @@
 module.exports = {
-  manifest: require('./manifest')
+  manifest: require('./manifest'),
+  Model: require('./db')
 }

@@ -1,11 +1,11 @@
+const { handlers, helpers } = require('./user.controller')
+
 const routes = [
   /* GET - /user */
   {
     method: 'GET',
     path: '/',
-    handler: (req, h) => {
-      return { blah: 'asdadad' }
-    }
+    handler: handlers.test
   }
 ]
 
