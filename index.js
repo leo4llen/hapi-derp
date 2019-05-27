@@ -9,6 +9,7 @@ const startServer = async function() {
       manifest,
       options
     )
+
     await server.start()
     console.log(`Server listening on ${server.info.uri}`)
   } catch (err) {

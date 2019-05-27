@@ -5,6 +5,9 @@ const routes = [
   {
     method: 'GET',
     path: '/',
+    config: {
+      auth: 'jwt'
+    },
     handler: handlers.test
   }
 ]
@@ -12,6 +15,7 @@ const routes = [
 module.exports = {
   plugin: {
     async register(server, options) {
+      server.dependency('hapi-auth-jwt2')
       server.route(routes)
     },
     name: 'user-route'
