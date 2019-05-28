@@ -1,7 +1,6 @@
 require('dotenv').config()
 
 module.exports = {
-  // development: {
   client: 'mysql',
   connection: {
     port: process.env.DATABASE_PORT,
@@ -14,6 +13,4 @@ module.exports = {
     directory: './migrations',
     tableName: 'knex_migrations'
   }
-  //}
-  //TODO: Staging, testing and production
 }

@@ -1,17 +1,19 @@
 const hapiJwt = require('hapi-auth-jwt2')
 
-function authWrapper(server, options, next) {
+function register(server, options) {
   server.register(hapiJwt)
   server.auth.strategy('jwt', 'jwt', {
     key: 'someKey',
-    validate: function(decoded, request) {
+    validate: async function(decoded, request) {
       return { isValid: true }
     },
     verifyOptions: { algorithms: ['HS256'] }
   })
 
   server.auth.default('jwt')
-  next()
+}
+const authPlugin = {
+  plugin: { register, name: 'jwt' }
 }
 
-module.exports = authWrapper
+module.exports = authPlugin

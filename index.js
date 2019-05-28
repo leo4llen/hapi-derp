@@ -1,3 +1,6 @@
+const { join } = require('path')
+const { log, error } = require('./utils').logs
+require('dotenv').config({ path: join(__dirname, `${process.argv[2]}`) })
 const Glue = require('@hapi/glue')
 const serverConfig = require('./config')
 
@@ -11,9 +14,9 @@ const startServer = async function() {
     )
 
     await server.start()
-    console.log(`Server listening on ${server.info.uri}`)
+    log(`Server listening on ${server.info.uri}`)
   } catch (err) {
-    console.error(err)
+    error(err)
     process.exit(1)
   }
 }

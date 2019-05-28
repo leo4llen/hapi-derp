@@ -6,7 +6,7 @@ module.exports = async function manifest() {
   try {
     let plugins = await Promise.all([appPlugins, routes])
 
-    plugins = flatten([{ plugin: './app/plugins/jwt-auth' }, ...plugins])
+    plugins = flatten(plugins)
 
     const manifest = {
       server: {
@@ -24,16 +24,13 @@ module.exports = async function manifest() {
           //     xframe: false
           // },
         },
-
-        host: 'localhost',
-        port: 1337
+        host: process.env.HOST,
+        port: process.env.PORT
       },
       register: {
         plugins
       }
     }
-
-    console.log(JSON.stringify(manifest, null, 2))
     return manifest
   } catch (e) {
     throw new Error(e)

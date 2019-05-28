@@ -2,11 +2,8 @@ const chalk = require('chalk')
 
 function logs() {
   const methods = {
-    /**
-     *
-     */
     print: type => (...msg) =>
-      process.env.NODE_ENV === 'dev'
+      process.env.NODE_ENV === 'development'
         ? console.log(chalk[type](...msg))
         : undefined,
     log: (...msg) => methods.print('green')(...msg),
