@@ -1,4 +1,5 @@
 const { handlers, helpers } = require('./user.controller')
+const validator = require('./user.validators')
 
 const routes = [
   /* GET - /user */
@@ -12,10 +13,11 @@ const routes = [
   },
   /* GET - /user/getToken - Get a token to test JWT */
   {
-    method: 'GET',
+    method: 'POST',
     path: '/login',
     config: {
-      auth: false
+      auth: false,
+      validate: validator('userLogin')
     },
     handler: handlers.login
   },
@@ -36,7 +38,7 @@ module.exports = {
       server.dependency('hapi-auth-jwt2')
       server.route(routes)
     },
-    name: 'user-route'
+    name: 'user-routes'
   },
   routes: {
     prefix: '/user'

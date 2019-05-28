@@ -5,7 +5,12 @@ function userController() {
   /* Controller helper functions */
   const helpers = {
     validateUser: async data =>
-      data.username === 'test' && data.password === 'test@123'
+      data.username === 'test' && data.password === 'test@123',
+    /* To be imported in JWT plugin */
+    verifyToken: async decoded => {
+      if (decoded.username === 'test') return { isValid: true } // dumbass logic for testing
+      return { isValid: false }
+    }
   }
 
   /* Route hanlders */
@@ -21,8 +26,8 @@ function userController() {
     async login(req, h) {
       try {
         let validUser = await helpers.validateUser({
-          username: 'test',
-          password: 'test@123'
+          username: req.payload.username,
+          password: req.payload.password
         })
         log(validUser)
         if (!validUser) return unauthorized('Invalid user')
@@ -37,7 +42,7 @@ function userController() {
         )
 
         return {
-          data: token
+          data: { message: 'success', token }
         }
       } catch (e) {
         error(e)

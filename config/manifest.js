@@ -23,6 +23,11 @@ module.exports = async function manifest() {
           //     noSniff: true,
           //     xframe: false
           // },
+          validate: {
+            options: {
+              abortEarly: false
+            }
+          }
         },
         host: process.env.HOST,
         port: process.env.PORT
