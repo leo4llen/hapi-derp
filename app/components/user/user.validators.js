@@ -10,7 +10,7 @@ function userValidators(route) {
     }
   }
 
-  if (!validators[route]) throw new Error('Invalid route')
+  if (!validators[route]) throw new Error('Invalid route passed to validator')
 
   return validators[route]
 }

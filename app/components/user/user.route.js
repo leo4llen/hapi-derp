@@ -7,7 +7,10 @@ const routes = [
     method: 'GET',
     path: '/',
     config: {
-      auth: false
+      auth: false,
+      description: "Open route which doesn't require authentication",
+      notes: 'Returns a test response',
+      tags: ['api']
     },
     handler: handlers.open
   },
@@ -17,6 +20,9 @@ const routes = [
     path: '/login',
     config: {
       auth: false,
+      description: 'A login route which generates a JWT token',
+      notes: 'Returns data along with a JWT token',
+      tags: ['api'],
       validate: validator('userLogin')
     },
     handler: handlers.login
@@ -26,8 +32,12 @@ const routes = [
     method: 'GET',
     path: '/protected',
     config: {
-      auth: 'jwt'
+      auth: 'jwt',
+      description: 'A protected route',
+      notes: 'Returns a test response',
+      tags: ['api']
     },
+
     handler: handlers.protected
   }
 ]
@@ -36,6 +46,7 @@ module.exports = {
   plugin: {
     register(server) {
       server.dependency('hapi-auth-jwt2')
+      server.dependency('hapi-swagger')
       server.route(routes)
     },
     name: 'user-routes'
